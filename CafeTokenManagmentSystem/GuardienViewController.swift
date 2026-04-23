@@ -1,20 +1,20 @@
 //
-//  AddFoodViewController.swift
+//  GuardienViewController.swift
 //  CafeTokenManagmentSystem
 //
-//  Created by apple on 25/03/2019.
+//  Created by Asad Khan on 03/04/2019.
 //  Copyright © 2019 apple. All rights reserved.
 //
 
 import UIKit
 
-class AddFoodViewController: UIViewController {
+class GuardienViewController: UIViewController {
 
     
-    @IBOutlet weak var fprice: UITextField!
+    @IBOutlet weak var gname: UITextField!
+    @IBOutlet weak var aridno: UITextField!
+    @IBOutlet weak var cellno: UITextField!
     
-    @IBOutlet weak var fname: UITextField!
-    @IBOutlet weak var ftype: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,40 +26,38 @@ class AddFoodViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addfood(_ sender: UIButton) {
-        
-        if(fname.text?.isEmpty)! || (ftype.text?.isEmpty)!||(fprice.text?.isEmpty)!
+
+    @IBAction func addbtn(_ sender: UIButton) {
+        if(gname.text?.isEmpty)! ||
+        (aridno.text?.isEmpty)! ||
+        (cellno.text?.isEmpty)!
         {
             let alert = UIAlertController(title: "Alert", message: "All field are required", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert , animated: true, completion: nil)
             
         }
-        
-        let url="\(MyURL.url)AddFood/\(fname.text!)/\(ftype.text!)/\(fprice.text!)"
-        if let address = URL(string: url)
+        let url="\(MyURL.url)AddGuardien/\(gname.text!)/\(aridno.text!)/\(cellno.text!)"
+        if let add = URL(string: url)
         {
-            print(address)
-            URLSession.shared.dataTask(with: address) { (data, responce, error) in
+            print(add)
+            URLSession.shared.dataTask(with: add){ (data , response, error) in
                 if(error != nil)
                 {
-                    
                     print("saving error")
+                    
                 }
                 else{
-                 
                     do{
                         if let json = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? NSDictionary
                         {
                             DispatchQueue.main.async {
-                                
-                            
-                            print(json)
-                            if let cond = json.value(forKey: "AddFoodResult") as? Int
-                            {
+                                print(json)
+                                if let cond = json.value(forKey: "AddGuardienResult") as? Int
+                                {
                                 if cond == 0{
                                     
-                                    let alert = UIAlertController(title: "Alert", message: "Food is Already Registered", preferredStyle: .alert)
+                                    let alert = UIAlertController(title: "Alert", message: "Student is Already Registered", preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
                                     
@@ -67,37 +65,36 @@ class AddFoodViewController: UIViewController {
                                 else
                                 {
                                     print("saved")
-                                    
-                                  let alert = UIAlertController(title: "Alert", message: "Student is Sucessfully Registered", preferredStyle: .alert)
+                                    let alert = UIAlertController(title: "Alert", message: "Student is Sucessfully Registered", preferredStyle: .alert)
                                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                                     self.present(alert, animated: true, completion: nil)
-                                    
-                                    
                                 }
-                                
                             }
                             
-                            
                         }
-                        }}
-                    catch{
-                        
-                        print("return error")
                     }
                     
+                }
+                catch{
+                    
+                    print("return error")
                     
                 }
-                }.resume()
-            
-            
-        }
-        else{
-            print("url error")
-            
-        }
-        
-        
+            }
+        }.resume()
     }
     
-   
+    else {
+    print("url error")
+    
+    }
 }
+}
+
+
+
+
+
+
+
+
