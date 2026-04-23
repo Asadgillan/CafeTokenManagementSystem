@@ -1,14 +1,23 @@
+//
+//  textviewDesign.swift
+//  HomeHealthCare
+//
+//  Created by Admin on 03/06/2018.
+//  Copyright © 2018 Admin. All rights reserved.
+//
+
+import Foundation
 import UIKit
 
 @IBDesignable
-class CardView: UIView {
+class textviewDesign: UITextField{
     
     @IBInspectable var cornerRadius: CGFloat = 5
     
     @IBInspectable var shadowOffsetWidth: Int = 0
     @IBInspectable var shadowOffsetHeight: Int = 3
     @IBInspectable var shadowColor: UIColor? = UIColor.black
-    @IBInspectable var shadowOpacity: Float = 0.5
+    @IBInspectable var shadowOpacity: Float = 1.0
     
     override func layoutSubviews() {
         layer.cornerRadius = cornerRadius
