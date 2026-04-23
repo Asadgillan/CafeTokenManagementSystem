@@ -1,5 +1,20 @@
-# CafeTokenManagementSystem
-iOS cafeteria management system for schools with parental oversight, prepaid tokens, and barcode-based transactions. Built solo as BS Information Technology Final Year Project.
+# Cafe Token Management System
+
+The **Cafe Token Management System** is an iOS application designed to modernize and streamline cafeteria operations in educational institutions.
+
+It provides students with an easy way to order food, enables administrators to manage menus and inventory efficiently, and allows parents or guardians to remotely monitor and control their children’s food purchases.
+
+## Key Benefits
+
+- Reduced paper-based processes  
+- Faster and smoother service  
+- Better financial tracking and control  
+- Improved transparency for parents and guardians  
+- Efficient cafeteria management  
+
+## Overview
+
+This system replaces traditional manual token methods with a smart digital solution, creating a more convenient and transparent cafeteria experience for students, staff, and families.
 
 
 # FYP Project Presentation
